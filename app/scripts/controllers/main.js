@@ -8,7 +8,7 @@ angular.module('uniSpyApp')
       'Karma'
     ];
 
-
+    $scope.days = ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"]
     
 
     $http.get('menus.json').success( function(data, status, headers, config) {
@@ -17,9 +17,7 @@ angular.module('uniSpyApp')
     });
 
     $scope.onlyUnicafe = function(entry) {
-      console.log(this, arguments)
-      console.log("auts")
-      return entry.campus === "Kumpula";
+      return entry.name.indexOf("Unicafe") > -1;
     }
 
   });
