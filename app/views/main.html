@@ -8,9 +8,29 @@
 </div>
 
 
-
-<div ng-repeat="entry
+<ul>
+<li ng-repeat="entry
  in entries | filter:onlyUnicafe">
-  {{entry.campus}}
-  lol
-</div>
+  <div>
+    <p>
+      {{entry.campus}}
+    </p>
+    <p>
+      {{entry.name}}
+    </p>
+    <p>
+      <ul>
+        <li ng-repeat="day in entry.meals.fi">
+          {{days[$index]}}
+          <ul>
+            <li ng-repeat="meal in day">
+
+              {{meal}}
+           </li>
+          </ul>   
+        </li>
+      </ul>
+    </p>  
+  </div>   
+</li>
+</ul>
