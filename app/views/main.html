@@ -19,7 +19,7 @@
       {{entry.name}}
     </p>
     <p>
-      <ul>
+      <ul ng-if="entry.meals!==undefined">
         <li ng-repeat="day in entry.meals.fi">
           {{days[$index]}}
           <ul>
