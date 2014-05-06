@@ -22,6 +22,7 @@ body {
   margin-bottom: 0;
   line-height: 40px;
   padding-bottom: 19px;
+  margin-left: 5%;
 }
 
 /* Custom page footer */
@@ -34,7 +35,7 @@ body {
 /* Customize container */
 @media (min-width: 768px) {
   .container {
-    max-width: 730px;
+    max-width: 1400px;
   }
 }
 .container-narrow > hr {
