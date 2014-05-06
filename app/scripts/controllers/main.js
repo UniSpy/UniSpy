@@ -27,7 +27,7 @@ angular.module('uniSpyApp')
     $scope.isTagged = function(ruoka) {
       for (var tagi in $scope.recommendations) {
         //console.log($scope.recommendations[tagi]);
-        if (ruoka.indexOf($scope.recommendations[tagi]) > -1) return true;
+        if (ruoka.toLowerCase().indexOf($scope.recommendations[tagi].toLowerCase()) > -1) return true;
       }
       return false;
     }
