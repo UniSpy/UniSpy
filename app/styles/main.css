@@ -60,6 +60,10 @@ body {
   margin-top: 28px;
 }
 
+.nav-pills {
+  margin-right: 2%;
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   /* Remove the padding we set earlier */
