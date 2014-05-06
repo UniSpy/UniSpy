@@ -22,8 +22,14 @@
           {{days[$index]}}
           <ul>
             <li ng-repeat="meal in day">
-
-              {{meal}}
+              <div ng-if="isTagged(meal)">
+                <b>
+                  {{meal}}
+                </b>
+              </div>
+              <div ng-if="!isTagged(meal)")>
+                {{meal}}
+              </div>
            </li>
           </ul>   
         </li>
