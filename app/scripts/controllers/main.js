@@ -2,11 +2,6 @@
 
 angular.module('uniSpyApp')
   .controller('MainCtrl', function ($scope, $http, $filter) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karmaa'
-    ];
 
     $scope.days = ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"]
     
