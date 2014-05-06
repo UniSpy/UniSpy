@@ -11,35 +11,35 @@ angular.module('uniSpyApp')
     $scope.days = ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"]
     
 
-    $http.get('menus.json').success( function(data, status, headers, config) {
+    $http.get('http://www.lounasaika.net/api/v1/menus.json').success( function(data, status, headers, config) {
       $scope.entries = data;
       if ($scope.tags !== undefined) {
-        addRecommendations();
+        makeRecommedations();
       }
     });
 
-    $http.get('recommendations.json').success( function(data, status, headers, config) {
-      $scope.tags = data;
+    $http.get('http://unispy-backend.herokuapp.com/tags.json').success( function(data, status, headers, config) {
+      $scope.tags = new Array();
+      for (var i in data) {
+        $scope.tags.push(data[i].content);
+      }
+      //$scope.tags = data;
       if ($scope.entries !== undefined) {
-        addRecommendations();
+        makeRecommedations();
       }
     });
 
 
-    function Recommendation(placeName, meal) {
-      this.meal = meal;
-      this.placeName = placeName;
-    }
 
-
-    function addRecommendations() {
+    function makeRecommedations() {
       //$scope.recommendations = $filter($scope.entries, )
-      $scope.recommendations = JSON.parse(JSON.stringify($scope.entries));
+      $scope.recommendations = angular.copy($scope.entries);
       for (var place in $scope.entries) {
         var currentPlace = $scope.entries[place];
         if (currentPlace.meals === undefined) {
           continue;
         }
+        var allDaysDeleted = true;
         for (var day in currentPlace.meals.fi) {
           var currentDay = currentPlace.meals.fi[day];
           var allMealsdeleted = true;
@@ -53,7 +53,13 @@ angular.module('uniSpyApp')
           }
           if (allMealsdeleted) {
             delete $scope.recommendations[place].meals.fi[day];
+          } else {
+            allDaysDeleted = false;
           }
+        }
+        if (allDaysDeleted) {
+          console.log("deleting empty place")
+          delete $scope.recommendations[place];
         }
       }
       console.log($scope.recommendations);
@@ -61,7 +67,7 @@ angular.module('uniSpyApp')
 
     $scope.onlyUnicafe = function(entry) {
       return entry.name.indexOf("Unicafe") > -1;
-    }
+    };
 
     $scope.isTagged = function(ruoka) {
       for (var tag in $scope.tags) {
@@ -69,6 +75,6 @@ angular.module('uniSpyApp')
         if (ruoka.toLowerCase().indexOf($scope.tags[tag].toLowerCase()) > -1) return true;
       }
       return false;
-    }
+    };
 
   });
