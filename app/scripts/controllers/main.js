@@ -11,7 +11,7 @@ angular.module('uniSpyApp')
     $scope.days = ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"]
     
 
-    $http.get('http://www.lounasaika.net/api/v1/menus.json').success( function(data, status, headers, config) {
+    $http.get('http://unispy-backend.herokuapp.com/menus.json').success( function(data, status, headers, config) {
       $scope.entries = data;
       if ($scope.tags !== undefined) {
         makeRecommedations();
