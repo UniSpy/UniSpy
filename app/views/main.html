@@ -1,14 +1,5 @@
-<ul>
-<li ng-repeat="entry
- in entries | filter:onlyUnicafe">
-  <div>
-    <p>
-      {{entry.campus}}
-    </p>
-    <p>
-      {{entry.name}}
-    </p>
-    <p>
+  <tabset>
+    <tab ng-repeat="entry in entries | filter:onlyUnicafe" heading="{{entry.name}}">
       <ul>
         <li ng-repeat="day in entry.meals.fi">
           {{days[$index]}}
@@ -26,7 +17,5 @@
           </ul>   
         </li>
       </ul>
-    </p>  
-  </div>   
-</li>
-</ul>
+    </tab>
+  </tabset>
