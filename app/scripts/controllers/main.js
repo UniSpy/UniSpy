@@ -61,6 +61,16 @@ angular.module('uniSpyApp')
       console.log($scope.recommendations);
     }
 
+    $scope.taggedOnly = false;
+
+    $scope.shouldDisplay = function(meal) {
+      return !$scope.taggedOnly || $scope.isTagged(meal);
+    }
+ 
+    $scope.toggleTagged = function() {
+      $scope.taggedOnly = !$scope.taggedOnly;
+    }
+
     $scope.hasMeals = function(entry) {
       return !!entry.length;
     };
