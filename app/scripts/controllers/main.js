@@ -38,22 +38,23 @@ angular.module('uniSpyApp')
         for (var day in currentPlace.meals.fi) {
           var currentDay = currentPlace.meals.fi[day];
           var allMealsdeleted = true;
+          var meals = [];
           for (var meal in currentDay) {
             var currentMeal = currentDay[meal];
-            if (!$scope.isTagged(currentMeal)) {
-              delete $scope.recommendations[place].meals.fi[day][meal];
+            if ($scope.isTagged(currentMeal)) {
+              meals.push(currentMeal);
             } else {
               allMealsdeleted = false;
             }
           }
+          $scope.recommendations[place].meals.fi[day] = meals;
+
           if (allMealsdeleted) {
-            delete $scope.recommendations[place].meals.fi[day];
           } else {
             allDaysDeleted = false;
           }
         }
         if (allDaysDeleted) {
-          console.log("deleting empty place")
           delete $scope.recommendations[place];
         }
       }
@@ -61,6 +62,7 @@ angular.module('uniSpyApp')
     }
 
     $scope.onlyUnicafe = function(entry) {
+      if (entry === undefined) return false;
       return entry.name.indexOf("Unicafe") > -1;
     };
 
