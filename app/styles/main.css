@@ -84,3 +84,7 @@ body {
 }
 
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.hilight {
+  font-weight: bold;
+}
