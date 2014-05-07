@@ -43,12 +43,12 @@ angular.module('uniSpyApp')
             var currentMeal = currentDay[meal];
             if ($scope.isTagged(currentMeal)) {
               meals.push(currentMeal);
-            } else {
               allMealsdeleted = false;
+            } else {
             }
           }
+          //$scope.recommendations[place].meals.fi[day] = meals;
           $scope.recommendations[place].meals.fi[day] = meals;
-
           if (allMealsdeleted) {
           } else {
             allDaysDeleted = false;
@@ -60,6 +60,10 @@ angular.module('uniSpyApp')
       }
       console.log($scope.recommendations);
     }
+
+    $scope.hasMeals = function(entry) {
+      return !!entry.length;
+    };
 
     $scope.onlyUnicafe = function(entry) {
       if (entry === undefined) return false;

@@ -5,14 +5,9 @@
           {{days[$index]}}
           <ul>
             <li ng-repeat="meal in day">
-              <div ng-if="isTagged(meal)">
-                <b>
-                  {{meal}}
-                </b>
-              </div>
-              <div ng-if="!isTagged(meal)")>
+              <span ng-class="{hilight:isTagged(meal)}">
                 {{meal}}
-              </div>
+              </span>
            </li>
           </ul>   
         </li>
