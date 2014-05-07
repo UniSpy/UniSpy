@@ -2,11 +2,6 @@
 
 angular.module('uniSpyApp')
   .controller('MainCtrl', function ($scope, $http, $filter) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
 
     $scope.days = ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"]
     
@@ -43,29 +38,35 @@ angular.module('uniSpyApp')
         for (var day in currentPlace.meals.fi) {
           var currentDay = currentPlace.meals.fi[day];
           var allMealsdeleted = true;
+          var meals = [];
           for (var meal in currentDay) {
             var currentMeal = currentDay[meal];
-            if (!$scope.isTagged(currentMeal)) {
-              delete $scope.recommendations[place].meals.fi[day][meal];
-            } else {
+            if ($scope.isTagged(currentMeal)) {
+              meals.push(currentMeal);
               allMealsdeleted = false;
+            } else {
             }
           }
+          //$scope.recommendations[place].meals.fi[day] = meals;
+          $scope.recommendations[place].meals.fi[day] = meals;
           if (allMealsdeleted) {
-            delete $scope.recommendations[place].meals.fi[day];
           } else {
             allDaysDeleted = false;
           }
         }
         if (allDaysDeleted) {
-          console.log("deleting empty place")
           delete $scope.recommendations[place];
         }
       }
       console.log($scope.recommendations);
     }
 
+    $scope.hasMeals = function(entry) {
+      return !!entry.length;
+    };
+
     $scope.onlyUnicafe = function(entry) {
+      if (entry === undefined) return false;
       return entry.name.indexOf("Unicafe") > -1;
     };
 
