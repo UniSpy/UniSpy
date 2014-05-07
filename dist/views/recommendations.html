@@ -1,2 +1,1 @@
-<ul><li ng-repeat="recommendation
- in recommendations | filter:onlyUnicafe"><div><p>{{recommendation.campus}}</p><p>{{recommendation.name}}</p><p><ul ng-if="recommendation.meals!==undefined"><li ng-repeat="day in recommendation.meals.fi">{{days[$index]}}<ul><li ng-repeat="meal in day"><div ng-if="isTagged(meal)"><b>{{meal}}</b></div><div ng-if="!isTagged(meal)">{{meal}}</div></li></ul></li></ul></p></div></li></ul>
+<tabset><tab ng-repeat="recommendation in recommendations | filter:onlyUnicafe" heading="{{recommendation.name}}"><ul><li ng-repeat="(day, meals) in recommendation.meals.fi | filter:hasMeals">{{days[day]}}<ul><li ng-repeat="meal in meals"><span ng-class="{hilight:isTagged(meal)}">{{meal}}</span></li></ul></li></ul></tab></tabset>
