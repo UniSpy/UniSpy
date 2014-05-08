@@ -88,3 +88,7 @@ body {
 .hilight {
   font-weight: bold;
 }
+
+.modal-sm {
+width: 300px;
+}
