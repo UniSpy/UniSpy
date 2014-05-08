@@ -21,6 +21,7 @@ angular.module('uniSpyApp')
         $scope.tags.push(data[i].content);
       }
       //$scope.tags = data;
+      console.log($scope.tags);
       if ($scope.entries !== undefined) {
         makeRecommedations();
       }
@@ -79,6 +80,10 @@ angular.module('uniSpyApp')
       if (entry === undefined) return false;
       return entry.name.indexOf("Unicafe") > -1;
     };
+
+    $scope.onlyUnicafeWithFinnnishMeals = function(entry) {
+      return $scope.onlyUnicafe(entry) && entry.meals.fi.length > 0;
+    }
 
     $scope.isTagged = function(ruoka) {
       for (var tag in $scope.tags) {
