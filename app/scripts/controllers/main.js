@@ -87,7 +87,3 @@ angular.module('uniSpyApp')
     };
 
   });
-
-function LoginCtrl($scope) {
-  $scope.isCollapsed = true;
-}
