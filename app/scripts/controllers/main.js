@@ -85,5 +85,4 @@ angular.module('uniSpyApp')
       }
       return false;
     };
-
   });
