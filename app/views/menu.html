@@ -1,32 +1,32 @@
 <ul>
-<li ng-repeat="entry
- in entries | filter:onlyUnicafe">
-  <div>
-    <p>
-      {{entry.campus}}
-    </p>
-    <p>
-      {{entry.name}}
-    </p>
-    <p>
-      <ul ng-if="entry.meals!==undefined">
-        <li ng-repeat="day in entry.meals.fi">
-          {{days[$index]}}
-          <ul>
-            <li ng-repeat="meal in day">
-              <div ng-if="isTagged(meal)">
-                <b>
+  <li ng-repeat="entry
+    in entries | filter:onlyUnicafe">
+    <div>
+      <p>
+        {{entry.campus}}
+      </p>
+      <p>
+        {{entry.name}}
+      </p>
+      <p>
+        <ul ng-if="entry.meals!==undefined">
+          <li ng-repeat="day in entry.meals.fi">
+            {{days[$index]}}
+            <ul>
+              <li ng-repeat="meal in day">
+                <div ng-if="isTagged(meal)">
+                  <b>
+                    {{meal}}
+                  </b>
+                </div>
+                <div ng-if="!isTagged(meal)")>
                   {{meal}}
-                </b>
-              </div>
-              <div ng-if="!isTagged(meal)")>
-                {{meal}}
-              </div>
-           </li>
-          </ul>   
-        </li>
-      </ul>
-    </p>  
-  </div>   
-</li>
+                </div>
+              </li>
+            </ul>   
+          </li>
+        </ul>
+      </p>  
+    </div>   
+  </li>
 </ul>

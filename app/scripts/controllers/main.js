@@ -1,5 +1,7 @@
 'use strict';
 
+
+
 angular.module('uniSpyApp')
   .controller('MainCtrl', function ($scope, $http, $filter) {
 
@@ -23,8 +25,6 @@ angular.module('uniSpyApp')
         makeRecommedations();
       }
     });
-
-
 
     function makeRecommedations() {
       //$scope.recommendations = $filter($scope.entries, )
@@ -87,5 +87,4 @@ angular.module('uniSpyApp')
       }
       return false;
     };
-
   });
