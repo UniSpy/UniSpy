@@ -39,7 +39,10 @@ app.factory('Auth', function($http){
 angular.module('uniSpyApp')
 .controller('LoginCtrl', function ($scope, $modal, Auth) {
 
+	$scope.credentials = {};
+
 	$scope.login = function (){
+		console.log($scope.credentials);
 		Auth.login($scope.credentials)
 		.then(
 			function(data) {
