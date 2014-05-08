@@ -1,5 +1,5 @@
   <tabset>
-    <tab ng-repeat="entry in entries | filter:onlyUnicafe" heading="{{entry.name}}">
+    <tab ng-repeat="entry in entries | filter:onlyUnicafeWithFinnishMeals" heading="{{entry.name}}">
       <ul>
         <li ng-repeat="day in entry.meals.fi">
           {{days[$index]}}

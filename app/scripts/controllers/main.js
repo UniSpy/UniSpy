@@ -80,6 +80,10 @@ angular.module('uniSpyApp')
       return entry.name.indexOf("Unicafe") > -1;
     };
 
+    $scope.onlyUnicafeWithFinnnishMeals = function(entry) {
+      return $scope.onlyUnicafe(entry) && entry.meals.fi.length > 0;
+    }
+
     $scope.isTagged = function(ruoka) {
       for (var tag in $scope.tags) {
         //console.log($scope.recommendations[tagi]);
