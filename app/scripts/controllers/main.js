@@ -24,8 +24,6 @@ angular.module('uniSpyApp')
       }
     });
 
-
-
     function makeRecommedations() {
       //$scope.recommendations = $filter($scope.entries, )
       $scope.recommendations = angular.copy($scope.entries);
@@ -89,3 +87,7 @@ angular.module('uniSpyApp')
     };
 
   });
+
+function LoginCtrl($scope) {
+  $scope.isCollapsed = true;
+}
