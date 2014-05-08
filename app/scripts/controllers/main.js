@@ -21,6 +21,7 @@ angular.module('uniSpyApp')
         $scope.tags.push(data[i].content);
       }
       //$scope.tags = data;
+      console.log($scope.tags);
       if ($scope.entries !== undefined) {
         makeRecommedations();
       }

@@ -1,6 +1,6 @@
 
-  <button ng-if="!taggedOnly" class="btn btn-primary" ng-click="toggleTagged.()">Only display tagged</button>
-  <button ng-if="taggedOnly" class="btn btn-primary" ng-click="toggleTagged.()">Display all</button>
+  <button ng-if="!taggedOnly" class="btn btn-primary" ng-click="toggleTagged.()">Näytä vain tägätyt</button>
+  <button ng-if="taggedOnly" class="btn btn-primary" ng-click="toggleTagged.()">Näytä kaikki</button>
   <tabset>
     <tab ng-repeat="entry in entries | filter:onlyUnicafeWithFinnnishMeals" heading="{{entry.name}}">
       <ul>
