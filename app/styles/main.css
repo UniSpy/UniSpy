@@ -99,3 +99,33 @@ width: 300px;
   line-height: 1.5;
   border-radius: 7px;
 }
+
+#showbutton {
+  margin-right: 15px;
+  margin-top: 15px;
+  float:right;
+}
+
+#open-tags {
+  margin-top: 5px;
+}
+
+.well{
+  width:90%;
+}
+
+.side-container:{
+  max-width: 100px;
+}
+
+#tag-panel{
+  max-width: 300px;
+}
+
+.panel-body {
+  padding: 0px;
+}
+
+.tab-content{
+  min-height: 50px;
+}
