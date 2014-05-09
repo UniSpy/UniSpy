@@ -23,9 +23,11 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
       <![endif]-->
 
-      <div class="header">
-        <div class="nav nav-pills pull-right" ng-controller="LoginCtrl">
-          <button class="btn btn-primary" ng-click="open()">Kirjaudu</button>
+      <div class="header" ng-controller="LoginCtrl">
+        <div class="nav nav-pills pull-right">
+          <button id="user" ng-show="loggedIn.status" class=class="btn">{{loggedIn.user}}</button>
+          <button class="btn btn-primary" ng-click="open()" ng-hide="loggedIn.status">Kirjaudu</button>
+          <button class="btn btn-primary" ng-click="logout()" ng-show="loggedIn.status">Kirjaudu ulos</button>
         </div>
         <h3 class="text-muted">UniSpy</h3>
       </div>
