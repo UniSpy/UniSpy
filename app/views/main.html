@@ -1,8 +1,7 @@
-
-  <button ng-if="!taggedOnly" class="btn btn-primary" ng-click="toggleTagged.()">Näytä vain tägätyt</button>
-  <button ng-if="taggedOnly" class="btn btn-primary" ng-click="toggleTagged.()">Näytä kaikki</button>
   <tabset>
     <tab ng-repeat="entry in entries | filter:onlyUnicafeWithFinnishMeals" heading="{{entry.name}}">
+      <button id="showbutton" ng-if="!taggedOnly" class="btn btn-primary" ng-click="toggleTagged.()">Näytä vain tägätyt</button>
+      <button id="showbutton" ng-if="taggedOnly" class="btn btn-primary" ng-click="toggleTagged.()">Näytä kaikki</button>
       <ul>
         <li ng-repeat="day in entry.meals.fi | filter:hasMeals" ng-show="$index >= today">
           {{days[$index]}}
