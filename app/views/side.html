@@ -5,7 +5,7 @@
 		{{tag}}
 		<button class="btn btn-xs" ng-click="deleteTag($index)">X</button>
 	</li>
-	<button class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Lisaa tagi</button>
+	<button id="open-tags" class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Lisaa tagi</button>
 <div collapse="isCollapsed">
   <div class="well well-sm">
     <form id="tag-form" ng-submit="addTag()">
