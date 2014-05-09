@@ -3,13 +3,14 @@
 	Käyttäjän tagit:
 	<li ng-repeat="tag in tags">
 		{{tag}}
+		<button class="btn btn-xs" ng-click="deleteTag($index)">X</button>
 	</li>
 	<button class="btn btn-default" ng-click="isCollapsed = !isCollapsed">Lisaa tagi</button>
 <div collapse="isCollapsed">
   <div class="well well-sm">
     <form id="tag-form" ng-submit="addTag()">
       <div class="form-group">
-        <input type="text" class="form-control" ng-model="tag.text" placeholder="tagi" />
+        <input type="text" class="form-control" ng-model="tag.text" placeholder="tagi"/>
       </div>
       <div class="form-group">
         <input type="Submit" id="tag-submit-button" class="btn btn-success btn-block" ng-click="isCollapsed = !isCollapsed" value="Lisää">
