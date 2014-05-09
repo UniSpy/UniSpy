@@ -110,8 +110,12 @@ width: 300px;
   margin-top: 5px;
 }
 
-.well{
+.well-sm{
   width:90%;
+}
+
+.well-lg{
+  margin:auto;
 }
 
 .side-container:{
