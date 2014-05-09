@@ -2,7 +2,6 @@
 
 var app = angular.module('uniSpyApp');
 
-
 app.factory('Auth', function($http){
 	var URL = 'http://unispy-backend.herokuapp.com/session';
 	var service = {};
@@ -10,9 +9,11 @@ app.factory('Auth', function($http){
 	service.logged = {};
 
 	service.login = function(credentials) {
-		console.log("Logging in :D")
+		console.log("Logging in :D");
 		return $http.post(URL, credentials).then(
+			//console.log("then!");
 			function (token) {
+				console.log(credentials);
 				service.logged.status = true;
 				service.logged.user = credentials.user;
 				$http.defaults.headers.common['auth-token'] = token.data;
@@ -21,7 +22,7 @@ app.factory('Auth', function($http){
 			)
 	}
 
-	service.logout = function(credentials) {
+	service.logout = function() {
 		return $http.delete(URL).then(
 			function () {
 				service.logged.status = false;
@@ -40,6 +41,7 @@ angular.module('uniSpyApp')
 .controller('LoginCtrl', function ($scope, $modal, Auth) {
 
 	$scope.credentials = {};
+	$scope.loggedIn = Auth.logged;
 
 	$scope.login = function (){
 		console.log($scope.credentials);
@@ -48,7 +50,6 @@ angular.module('uniSpyApp')
 			function(data) {
 				console.log("login success!");
 				$scope.$close();
-				console.log("login success2!");
 	          // success
 	      },function( data ) {
 	      	console.log("login fail!");
@@ -59,8 +60,11 @@ angular.module('uniSpyApp')
 		$scope.credentials = {}
 	}
 
+	$scope.logout = function () {
+		Auth.logout();
+	}
+
 	$scope.open = function () {
-		console.log("BLAA!");
 		$modal.open({
 			templateUrl: 'views/login.html',
 			controller: 'LoginCtrl',

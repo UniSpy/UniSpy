@@ -11,11 +11,11 @@ angular.module('uniSpyApp')
     $scope.today = d.getDay() - 1;
     //$scope.today = 1;
 
-    $http.get('http://unispy-backend.herokuapp.com/menus.json').success( function(data, status, headers, config) {
+    $http.get('https://unispy-backend.herokuapp.com/menus.json').success( function(data, status, headers, config) {
       $scope.entries = data;
     });
 
-    $http.get('http://unispy-backend.herokuapp.com/tags.json').success( function(data, status, headers, config) {
+    $http.get('https://unispy-backend.herokuapp.com/tags.json').success( function(data, status, headers, config) {
       $scope.tags = new Array();
       for (var i in data) {
         $scope.tags.push(data[i].content);
