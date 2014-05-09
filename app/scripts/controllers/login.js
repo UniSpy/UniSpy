@@ -3,6 +3,7 @@
 var app = angular.module('uniSpyApp');
 
 
+
 app.factory('Auth', function($http){
 	var URL = 'http://unispy-backend.herokuapp.com/session';
 	var service = {};
@@ -10,9 +11,11 @@ app.factory('Auth', function($http){
 	service.logged = {};
 
 	service.login = function(credentials) {
-		console.log("Logging in :D")
+		console.log("Logging in :D");
 		return $http.post(URL, credentials).then(
+			//console.log("then!");
 			function (token) {
+				console.log("then..");
 				service.logged.status = true;
 				service.logged.user = credentials.user;
 				$http.defaults.headers.common['auth-token'] = token.data;
@@ -40,6 +43,7 @@ angular.module('uniSpyApp')
 .controller('LoginCtrl', function ($scope, $modal, Auth) {
 
 	$scope.credentials = {};
+	$scope.loggedIn = Auth.logged;
 
 	$scope.login = function (){
 		console.log($scope.credentials);
