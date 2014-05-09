@@ -7,6 +7,9 @@ angular.module('uniSpyApp')
 
     $scope.days = ["Maanantai", "Tiistai", "Keskiviikko", "Torstai", "Perjantai", "Lauantai", "Sunnuntai"]
     
+    var d = new Date();
+    $scope.today = d.getDay() - 1;
+    //$scope.today = 1;
 
     $http.get('http://unispy-backend.herokuapp.com/menus.json').success( function(data, status, headers, config) {
       $scope.entries = data;
