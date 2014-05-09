@@ -15,7 +15,7 @@ angular.module('uniSpyApp')
       $scope.entries = data;
     });
 
-    $http.get('https://unispy-backend.herokuapp.com/users/1.json').success( function(data, status, headers, config) {
+    $http.get('https://unispy-backend.herokuapp.com/tags.json').success( function(data, status, headers, config) {
       $scope.tags = new Array();
       for (var i in data) {
         $scope.tags.push(data[i].content);
