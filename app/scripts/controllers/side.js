@@ -7,7 +7,9 @@ angular.module('uniSpyApp')
     $scope.tag = {};
 
     $scope.addTag = function(){
-      $scope.tags.push($scope.tag.text);
+      if($scope.tags.indexOf($scope.tag.text) == -1){
+        $scope.tags.push($scope.tag.text);
+      }
       $scope.tag = {};
     };
     $scope.deleteTag = function(tag){
